@@ -1,0 +1,193 @@
+/* Общие стили для страницы */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.image-button {
+    -fx-pref-width: 100px; /* Ширина кнопки */
+    -fx-pref-height: 100px; /* Высота кнопки */
+}
+
+.image-button img {
+    -fx-preserve-ratio: true;  /* Сохраняет пропорции изображения */
+    -fx-fit-width: 100px;  /* Ограничение ширины */
+    -fx-fit-height: 100px; /* Ограничение высоты */
+}
+
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f8ff;
+    color: #333;
+    -fx-alignment: center; /* Центрирование элементов */
+    -fx-vertical-gap: 20px; /* Вертикальные отступы */
+    -fx-horizontal-gap: 20px; /* Горизонтальные отступы */
+    -fx-padding: 20px; /* Отступы по краям */
+    text-align: center;
+}
+
+
+h1 {
+    -fx-font-size: 36px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #444;
+    -fx-margin-bottom: 30px;
+}
+
+/* Стили для основного контейнера (VBox) */
+.root {
+    -fx-display: flex;
+    -fx-flex-direction: column;
+    -fx-align-items: center;
+    -fx-justify-content: center;
+}
+
+/* Стили для заголовка */
+.title {
+    -fx-font-size: 32px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #444;
+    -fx-margin-bottom: 30px;
+    -fx-text-transform: uppercase;
+}
+
+/* Стили для кнопок */
+.form-button {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #ddd;
+    -fx-border-radius: 10px;
+    -fx-padding: 15px;
+    -fx-pref-width: 150px;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #555;
+    -fx-cursor: hand;
+    -fx-transition: background-color 0.3s;
+    -fx-alignment: center;
+    -fx-min-width: 200px; /* Минимальная ширина кнопки */
+    -fx-pref-width: 250px; /* Предпочтительная ширина кнопки */
+    -fx-text-alignment: center; /* Центрирование текста */
+}
+
+.form-button:hover {
+    -fx-background-color: #f5f5f5;
+}
+
+.form-button:pressed {
+    -fx-background-color: #e0e0e0; /* Изменение фона при нажатии */
+}
+
+/* Стили для изображения в кнопке */
+.form-button img {
+    -fx-max-width: 50px; /* Ограничение максимальной ширины */
+    -fx-max-height: 50px; /* Ограничение максимальной высоты */
+    -fx-preserve-ratio: true; /* Сохранение пропорций */
+    -fx-hgap: 10px;
+    -fx-alignment: center;
+}
+
+/* Респонсивный дизайн: изменение количества колонок в зависимости от ширины экрана */
+@media screen and (max-width: 768px) {
+    .grid {
+        -fx-grid-columns: 2; /* Преобразование в 2 колонки */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .grid {
+        -fx-grid-columns: 1; /* Преобразование в 1 колонку */
+    }
+}
+
+/* Стили для основного окна */
+.title {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    color: #333;
+}
+
+/* Стили для примера формулы */
+.example-text {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Стиль для левого блока (ввод) */
+.left-block {
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    padding: 20px;
+    width: 40%;
+}
+
+.left-block .text-field {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+/* Стиль для правого блока (результат) */
+.right-block {
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    padding: 20px;
+    width: 55%;
+}
+
+.result-label {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+}
+
+.result-box {
+    font-size: 16px;
+    color: #333;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #e9e9e9;
+    border-radius: 5px;
+}
+
+/* Стиль для кнопок */
+button {
+    padding: 10px 15px;
+    font-size: 14px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+button:disabled {
+    background-color: #d3d3d3;
+    cursor: not-allowed;
+}
+
+/* Стиль для блоков с результатами */
+hbox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+}
+
+/* Стиль для ошибок */
+.error {
+    color: red;
+    font-size: 14px;
+}
+
+
+
