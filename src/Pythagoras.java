@@ -11,8 +11,9 @@ public class Pythagoras extends Application {
 
     @Override
     public void start(Stage stage) {
-        Text title = new Text("Решение теоремы Пифагора");
+        Text title = new Text("Теорема Пифагора");
         title.setStyle("-fx-font-size: 24px; -fx-font-weight: bold; -fx-fill: #333;");
+        stage.getIcons().add(new Image(getClass().getResource("/images/square-minus.png").toExternalForm()));
         Label catetALabel = new Label("Катет 1 (a):");
         catetALabel.setStyle("-fx-font-size: 14px; -fx-font-weight: normal; -fx-text-fill: #333;");
         TextField catetAField = new TextField();
@@ -26,7 +27,15 @@ public class Pythagoras extends Application {
         TextField hypotenuseField = new TextField();
         hypotenuseField.setStyle("-fx-font-size: 14px; -fx-padding: 8px; -fx-border-color: #ccc; -fx-border-radius: 5px;");
         Button calculateButton = new Button("Вычислить");
-        calculateButton.setStyle("-fx-background-color: #007bff; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 10px 20px; -fx-border-radius: 5px;");
+        calculateButton.setStyle(
+                "-fx-font-size: 14px; -fx-background-color: #007BFF; -fx-text-fill: white; -fx-padding: 10 20; -fx-border-radius: 5px; -fx-background-radius: 5px;"
+        );
+        calculateButton.setOnMouseEntered(e -> calculateButton.setStyle(
+                "-fx-font-size: 14px; -fx-background-color: #0040ff; -fx-text-fill: white; -fx-padding: 10 20; -fx-border-radius: 5px; -fx-background-radius: 5px;"
+        ));
+        calculateButton.setOnMouseExited(e -> calculateButton.setStyle(
+                "-fx-font-size: 14px; -fx-background-color: #007BFF; -fx-text-fill: white; -fx-padding: 10 20; -fx-border-radius: 5px; -fx-background-radius: 5px;"
+        ));
         Label resultLabel = new Label("Результат:");
         resultLabel.setStyle("-fx-font-size: 16px; -fx-font-weight: normal; -fx-text-fill: #333;");
         Label resultText = new Label("");

@@ -15,7 +15,8 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) {
         Text title = new Text("Математические Формулы");
-        title.getStyleClass().add("title");
+        title.setStyle("-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #333333;");
+        primaryStage.getIcons().add(new Image(getClass().getResource("/images/abacus.png").toExternalForm()));
 
         GridPane grid = new GridPane();
         grid.setAlignment(Pos.CENTER);
@@ -106,24 +107,43 @@ public class Main extends Application {
         root.setAlignment(Pos.TOP_CENTER);
         root.setPadding(new Insets(20));
 
+        // Встраиваем CSS прямо сюда
+        root.setStyle(
+                "-fx-background-color: #f9f9f9; -fx-font-family: 'Arial'; -fx-font-size: 16px;"
+        );
+
         Scene scene = new Scene(root, 1024, 576);
         primaryStage.setMinWidth(1024);
         primaryStage.setMinHeight(576);
-        scene.getStylesheets().add(getClass().getResource("/styles.css").toExternalForm());
 
-        primaryStage.setTitle("Математические Формулы");
+        primaryStage.setTitle("Математические формулы");
         primaryStage.setScene(scene);
         primaryStage.show();
     }
 
     private Button createButton(String text, String imagePath) {
         Button button = new Button(text);
-        button.getStyleClass().add("form-button");
+        button.setStyle(
+                "-fx-background-color: #ffffff; -fx-text-fill: #333333; -fx-font-weight: bold; -fx-padding: 15 30; -fx-min-width: 300px; -fx-pref-width: 300px; -fx-pref-height: 60px; -fx-border-radius: 8; -fx-background-radius: 8;"
+        );
+
+        button.setOnMouseEntered(e -> {
+            button.setStyle(
+                    "-fx-background-color: #f2f2f2; -fx-text-fill: #333333; -fx-font-weight: bold; -fx-padding: 15 30; -fx-min-width: 300px; -fx-pref-width: 300px; -fx-pref-height: 60px; -fx-border-radius: 8; -fx-background-radius: 8; "         // Закругленные углы фона
+            );
+        });
+
+        button.setOnMouseExited(e -> {
+            button.setStyle(
+                    "-fx-background-color: #ffffff; -fx-text-fill: #333333; -fx-font-weight: bold; -fx-padding: 15 30; -fx-min-width: 300px; -fx-pref-width: 300px; -fx-pref-height: 60px; -fx-border-radius: 8; -fx-background-radius: 8;"
+            );
+        });
+
         Image image = new Image(getClass().getResource("/images/" + imagePath).toString());
         ImageView imageView = new ImageView(image);
         imageView.setPreserveRatio(true);
-        imageView.setFitWidth(50);
-        imageView.setFitHeight(50);
+        imageView.setFitWidth(40);
+        imageView.setFitHeight(40);
         button.setGraphic(imageView);
 
         return button;

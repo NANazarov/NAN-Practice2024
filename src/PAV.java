@@ -3,6 +3,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -23,6 +24,7 @@ public class PAV extends Application {
         // Кнопки типов операций
         Text title = new Text("Выберите операцию");
         title.setStyle("-fx-font-size: 20px; -fx-font-weight: bold; -fx-fill: #333333;");
+        primaryStage.getIcons().add(new Image(getClass().getResource("/images/cube.png").toExternalForm()));
 
         Button perimeterButton = new Button("Периметр");
         Button areaButton = new Button("Площадь");
@@ -78,7 +80,9 @@ public class PAV extends Application {
         rhombusButton.setOnAction(e -> showRhombusForm());
 
         Scene scene = new Scene(root, 800, 400);
-        primaryStage.setTitle("Функции");
+        primaryStage.setMinWidth(750);
+        primaryStage.setMinHeight(400);
+        primaryStage.setTitle("Периметры, площади, объёмы");
         primaryStage.setScene(scene);
         primaryStage.show();
     }
@@ -102,7 +106,7 @@ public class PAV extends Application {
     private void showFigureSelection() {
         formBox.getChildren().clear();
         resultBox.getChildren().clear();
-        primaryStage.setWidth(800);
+        primaryStage.setWidth(750);
         primaryStage.setHeight(400);
         if (!root.getChildren().contains(figureButtonBox)) {
             root.getChildren().add(figureButtonBox);
@@ -125,6 +129,15 @@ public class PAV extends Application {
         Label sideCLabel = new Label("Сторона 3 (c):");
         TextField sideCField = new TextField();
         Button calculateButton = new Button("Вычислить");
+        calculateButton.setStyle(
+                "-fx-font-size: 14px; -fx-background-color: #007BFF; -fx-text-fill: white; -fx-padding: 10 20; -fx-border-radius: 5px; -fx-background-radius: 5px;"
+        );
+        calculateButton.setOnMouseEntered(e -> calculateButton.setStyle(
+                "-fx-font-size: 14px; -fx-background-color: #0040ff; -fx-text-fill: white; -fx-padding: 10 20; -fx-border-radius: 5px; -fx-background-radius: 5px;"
+        ));
+        calculateButton.setOnMouseExited(e -> calculateButton.setStyle(
+                "-fx-font-size: 14px; -fx-background-color: #007BFF; -fx-text-fill: white; -fx-padding: 10 20; -fx-border-radius: 5px; -fx-background-radius: 5px;"
+        ));
         calculateButton.setOnAction(e -> {
             try {
                 double a = Double.parseDouble(sideAField.getText());
@@ -154,6 +167,15 @@ public class PAV extends Application {
         Label widthLabel = new Label("Ширина (b):");
         TextField widthField = new TextField();
         Button calculateButton = new Button("Вычислить");
+        calculateButton.setStyle(
+                "-fx-font-size: 14px; -fx-background-color: #007BFF; -fx-text-fill: white; -fx-padding: 10 20; -fx-border-radius: 5px; -fx-background-radius: 5px;"
+        );
+        calculateButton.setOnMouseEntered(e -> calculateButton.setStyle(
+                "-fx-font-size: 14px; -fx-background-color: #0040ff; -fx-text-fill: white; -fx-padding: 10 20; -fx-border-radius: 5px; -fx-background-radius: 5px;"
+        ));
+        calculateButton.setOnMouseExited(e -> calculateButton.setStyle(
+                "-fx-font-size: 14px; -fx-background-color: #007BFF; -fx-text-fill: white; -fx-padding: 10 20; -fx-border-radius: 5px; -fx-background-radius: 5px;"
+        ));
         calculateButton.setOnAction(e -> {
             try {
                 double length = Double.parseDouble(lengthField.getText());
@@ -208,6 +230,9 @@ public class PAV extends Application {
             Label sideBLabel = new Label("Сторона 2 (b):");
             TextField sideBField = new TextField();
             Button calculateButton = new Button("Вычислить");
+            calculateButton.setStyle(
+                    "-fx-font-size: 14px; -fx-background-color: #007BFF; -fx-text-fill: white; -fx-padding: 10 20; -fx-border-radius: 5px; -fx-background-radius: 5px;"
+            );
             calculateButton.setOnAction(ev -> {
                 try {
                     double sideA = Double.parseDouble(sideAField.getText());
@@ -238,6 +263,9 @@ public class PAV extends Application {
             Label diagonal2Label = new Label("Диагональ 2 (d2):");
             TextField diagonal2Field = new TextField();
             Button calculateButton = new Button("Вычислить");
+            calculateButton.setStyle(
+                    "-fx-font-size: 14px; -fx-background-color: #007BFF; -fx-text-fill: white; -fx-padding: 10 20; -fx-border-radius: 5px; -fx-background-radius: 5px;"
+            );
             calculateButton.setOnAction(ev -> {
                 try {
                     double sideA = Double.parseDouble(sideAField.getText());
@@ -268,6 +296,9 @@ public class PAV extends Application {
             Label angleLabel = new Label("Угол (α в градусах):");
             TextField angleField = new TextField();
             Button calculateButton = new Button("Вычислить");
+            calculateButton.setStyle(
+                    "-fx-font-size: 14px; -fx-background-color: #007BFF; -fx-text-fill: white; -fx-padding: 10 20; -fx-border-radius: 5px; -fx-background-radius: 5px;"
+            );
             calculateButton.setOnAction(ev -> {
                 try {
                     double sideA = Double.parseDouble(sideAField.getText());
@@ -305,6 +336,15 @@ public class PAV extends Application {
         Label side2Label = new Label("Сторона 2 (d):");
         TextField side2Field = new TextField();
         Button calculateButton = new Button("Вычислить");
+        calculateButton.setStyle(
+                "-fx-font-size: 14px; -fx-background-color: #007BFF; -fx-text-fill: white; -fx-padding: 10 20; -fx-border-radius: 5px; -fx-background-radius: 5px;"
+        );
+        calculateButton.setOnMouseEntered(e -> calculateButton.setStyle(
+                "-fx-font-size: 14px; -fx-background-color: #0040ff; -fx-text-fill: white; -fx-padding: 10 20; -fx-border-radius: 5px; -fx-background-radius: 5px;"
+        ));
+        calculateButton.setOnMouseExited(e -> calculateButton.setStyle(
+                "-fx-font-size: 14px; -fx-background-color: #007BFF; -fx-text-fill: white; -fx-padding: 10 20; -fx-border-radius: 5px; -fx-background-radius: 5px;"
+        ));
         calculateButton.setOnAction(e -> {
             try {
                 double base1 = Double.parseDouble(base1Field.getText());
@@ -333,6 +373,15 @@ public class PAV extends Application {
         Label sideLabel = new Label("Сторона (любая):");
         TextField sideField = new TextField();
         Button calculateButton = new Button("Вычислить");
+        calculateButton.setStyle(
+                "-fx-font-size: 14px; -fx-background-color: #007BFF; -fx-text-fill: white; -fx-padding: 10 20; -fx-border-radius: 5px; -fx-background-radius: 5px;"
+        );
+        calculateButton.setOnMouseEntered(e -> calculateButton.setStyle(
+                "-fx-font-size: 14px; -fx-background-color: #0040ff; -fx-text-fill: white; -fx-padding: 10 20; -fx-border-radius: 5px; -fx-background-radius: 5px;"
+        ));
+        calculateButton.setOnMouseExited(e -> calculateButton.setStyle(
+                "-fx-font-size: 14px; -fx-background-color: #007BFF; -fx-text-fill: white; -fx-padding: 10 20; -fx-border-radius: 5px; -fx-background-radius: 5px;"
+        ));
         calculateButton.setOnAction(e -> {
             try {
                 double side = Double.parseDouble(sideField.getText());
@@ -357,6 +406,15 @@ public class PAV extends Application {
         Label radiusLabel = new Label("Радиус (r):");
         TextField radiusField = new TextField();
         Button calculateButton = new Button("Вычислить");
+        calculateButton.setStyle(
+                "-fx-font-size: 14px; -fx-background-color: #007BFF; -fx-text-fill: white; -fx-padding: 10 20; -fx-border-radius: 5px; -fx-background-radius: 5px;"
+        );
+        calculateButton.setOnMouseEntered(e -> calculateButton.setStyle(
+                "-fx-font-size: 14px; -fx-background-color: #0040ff; -fx-text-fill: white; -fx-padding: 10 20; -fx-border-radius: 5px; -fx-background-radius: 5px;"
+        ));
+        calculateButton.setOnMouseExited(e -> calculateButton.setStyle(
+                "-fx-font-size: 14px; -fx-background-color: #007BFF; -fx-text-fill: white; -fx-padding: 10 20; -fx-border-radius: 5px; -fx-background-radius: 5px;"
+        ));
         calculateButton.setOnAction(e -> {
             try {
                 double radius = Double.parseDouble(radiusField.getText());
@@ -396,7 +454,7 @@ public class PAV extends Application {
         shapeBox.setSpacing(-1);
         shapeBox.setAlignment(Pos.CENTER);
         shapeBox.setPadding(new Insets(10));
-        shapeBox.setStyle("-fx-border-color: #cccccc; -fx-border-radius: 8px; -fx-background-color: #FFFFFF;");
+        shapeBox.setStyle("-fx-border-color: #e0e0e0; -fx-border-radius: 8px; -fx-background-color: #FFFFFF;");
 
         VBox inputBox = new VBox(10);
 
@@ -412,6 +470,9 @@ public class PAV extends Application {
             Label heightLabel = new Label("Высота (h):");
             TextField heightField = new TextField();
             Button calculateButton = new Button("Вычислить");
+            calculateButton.setStyle(
+                    "-fx-font-size: 14px; -fx-background-color: #007BFF; -fx-text-fill: white; -fx-padding: 10 20; -fx-border-radius: 5px; -fx-background-radius: 5px;"
+            );
             calculateButton.setOnAction(ev -> {
                 try {
                     double base = Double.parseDouble(baseField.getText());
@@ -440,6 +501,9 @@ public class PAV extends Application {
             Label widthLabel = new Label("Ширина (b):");
             TextField widthField = new TextField();
             Button calculateButton = new Button("Вычислить");
+            calculateButton.setStyle(
+                    "-fx-font-size: 14px; -fx-background-color: #007BFF; -fx-text-fill: white; -fx-padding: 10 20; -fx-border-radius: 5px; -fx-background-radius: 5px;"
+            );
             calculateButton.setOnAction(ev -> {
                 try {
                     double length = Double.parseDouble(lengthField.getText());
@@ -468,6 +532,9 @@ public class PAV extends Application {
             Label heightLabel = new Label("Высота (h):");
             TextField heightField = new TextField();
             Button calculateButton = new Button("Вычислить");
+            calculateButton.setStyle(
+                    "-fx-font-size: 14px; -fx-background-color: #007BFF; -fx-text-fill: white; -fx-padding: 10 20; -fx-border-radius: 5px; -fx-background-radius: 5px;"
+            );
             calculateButton.setOnAction(ev -> {
                 try {
                     double base = Double.parseDouble(baseField.getText());
@@ -496,6 +563,9 @@ public class PAV extends Application {
             Label diagonal2Label = new Label("Диагональ 2 (d2):");
             TextField diagonal2Field = new TextField();
             Button calculateButton = new Button("Вычислить");
+            calculateButton.setStyle(
+                    "-fx-font-size: 14px; -fx-background-color: #007BFF; -fx-text-fill: white; -fx-padding: 10 20; -fx-border-radius: 5px; -fx-background-radius: 5px;"
+            );
             calculateButton.setOnAction(ev -> {
                 try {
                     double d1 = Double.parseDouble(diagonal1Field.getText());
@@ -526,6 +596,9 @@ public class PAV extends Application {
             Label heightLabel = new Label("Высота (h):");
             TextField heightField = new TextField();
             Button calculateButton = new Button("Вычислить");
+            calculateButton.setStyle(
+                    "-fx-font-size: 14px; -fx-background-color: #007BFF; -fx-text-fill: white; -fx-padding: 10 20; -fx-border-radius: 5px; -fx-background-radius: 5px;"
+            );
             calculateButton.setOnAction(ev -> {
                 try {
                     double b1 = Double.parseDouble(base1Field.getText());
@@ -553,6 +626,9 @@ public class PAV extends Application {
             Label radiusLabel = new Label("Радиус (r):");
             TextField radiusField = new TextField();
             Button calculateButton = new Button("Вычислить");
+            calculateButton.setStyle(
+                    "-fx-font-size: 14px; -fx-background-color: #007BFF; -fx-text-fill: white; -fx-padding: 10 20; -fx-border-radius: 5px; -fx-background-radius: 5px;"
+            );
             calculateButton.setOnAction(ev -> {
                 try {
                     double radius = Double.parseDouble(radiusField.getText());
@@ -597,7 +673,7 @@ public class PAV extends Application {
         shapeBox.setSpacing(-1);
         shapeBox.setAlignment(Pos.CENTER);
         shapeBox.setPadding(new Insets(10));
-        shapeBox.setStyle("-fx-border-color: #cccccc; -fx-border-radius: 5px; -fx-background-color: #ffffff;");
+        shapeBox.setStyle("-fx-border-color: #e0e0e0; -fx-border-radius: 5px; -fx-background-color: #ffffff;");
 
         VBox inputBox = new VBox(10);
 
@@ -613,6 +689,9 @@ public class PAV extends Application {
             Label heightLabel = new Label("Высота (h):");
             TextField heightField = new TextField();
             Button calculateButton = new Button("Вычислить");
+            calculateButton.setStyle(
+                    "-fx-font-size: 14px; -fx-background-color: #007BFF; -fx-text-fill: white; -fx-padding: 10 20; -fx-border-radius: 5px; -fx-background-radius: 5px;"
+            );
             calculateButton.setOnAction(ev -> {
                 try {
                     double baseArea = Double.parseDouble(baseAreaField.getText());
@@ -643,6 +722,9 @@ public class PAV extends Application {
             Label heightLabel = new Label("Высота (h):");
             TextField heightField = new TextField();
             Button calculateButton = new Button("Вычислить");
+            calculateButton.setStyle(
+                    "-fx-font-size: 14px; -fx-background-color: #007BFF; -fx-text-fill: white; -fx-padding: 10 20; -fx-border-radius: 5px; -fx-background-radius: 5px;"
+            );
             calculateButton.setOnAction(ev -> {
                 try {
                     double length = Double.parseDouble(lengthField.getText());
@@ -672,6 +754,10 @@ public class PAV extends Application {
             Label heightLabel = new Label("Высота (h):");
             TextField heightField = new TextField();
             Button calculateButton = new Button("Вычислить");
+            calculateButton.setStyle(
+                    "-fx-font-size: 14px; -fx-background-color: #007BFF; -fx-text-fill: white; -fx-padding: 10 20; -fx-border-radius: 5px; -fx-background-radius: 5px;"
+            );
+
             calculateButton.setOnAction(ev -> {
                 try {
                     double baseArea = Double.parseDouble(baseAreaField.getText());
@@ -698,6 +784,9 @@ public class PAV extends Application {
             Label edgeLabel = new Label("Ребро (a):");
             TextField edgeField = new TextField();
             Button calculateButton = new Button("Вычислить");
+            calculateButton.setStyle(
+                    "-fx-font-size: 14px; -fx-background-color: #007BFF; -fx-text-fill: white; -fx-padding: 10 20; -fx-border-radius: 5px; -fx-background-radius: 5px;"
+            );
             calculateButton.setOnAction(ev -> {
                 try {
                     double edge = Double.parseDouble(edgeField.getText());
@@ -725,6 +814,9 @@ public class PAV extends Application {
             Label heightLabel = new Label("Высота (h):");
             TextField heightField = new TextField();
             Button calculateButton = new Button("Вычислить");
+            calculateButton.setStyle(
+                    "-fx-font-size: 14px; -fx-background-color: #007BFF; -fx-text-fill: white; -fx-padding: 10 20; -fx-border-radius: 5px; -fx-background-radius: 5px;"
+            );
             calculateButton.setOnAction(ev -> {
                 try {
                     double radius = Double.parseDouble(radiusField.getText());
@@ -753,6 +845,9 @@ public class PAV extends Application {
             Label heightLabel = new Label("Высота (h):");
             TextField heightField = new TextField();
             Button calculateButton = new Button("Вычислить");
+            calculateButton.setStyle(
+                    "-fx-font-size: 14px; -fx-background-color: #007BFF; -fx-text-fill: white; -fx-padding: 10 20; -fx-border-radius: 5px; -fx-background-radius: 5px;"
+            );
             calculateButton.setOnAction(ev -> {
                 try {
                     double radius = Double.parseDouble(radiusField.getText());
@@ -779,6 +874,9 @@ public class PAV extends Application {
             Label radiusLabel = new Label("Радиус (r):");
             TextField radiusField = new TextField();
             Button calculateButton = new Button("Вычислить");
+            calculateButton.setStyle(
+                    "-fx-font-size: 14px; -fx-background-color: #007BFF; -fx-text-fill: white; -fx-padding: 10 20; -fx-border-radius: 5px; -fx-background-radius: 5px;"
+            );
             calculateButton.setOnAction(ev -> {
                 try {
                     double radius = Double.parseDouble(radiusField.getText());

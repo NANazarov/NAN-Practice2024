@@ -1,6 +1,7 @@
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -9,15 +10,23 @@ public class Factorial extends Application {
 
     @Override
     public void start(Stage stage) {
-        Text title = new Text("Вычисление факториала");
+        Text title = new Text("Факториал");
         title.setStyle("-fx-font-size: 24px; -fx-font-weight: bold; -fx-fill: #333;");
+        stage.getIcons().add(new Image(getClass().getResource("/images/circle-exclamation.png").toExternalForm()));
         Label inputLabel = new Label("Введите число:");
         inputLabel.setStyle("-fx-font-size: 14px; -fx-font-weight: normal; -fx-text-fill: #333;");
         TextField inputField = new TextField();
         inputField.setStyle("-fx-font-size: 14px; -fx-padding: 8px; -fx-border-color: #ccc; -fx-border-radius: 5px;");
         Button calculateButton = new Button("Вычислить");
-        calculateButton.setStyle("-fx-background-color: #007bff; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 10px 20px; -fx-border-radius: 5px;");
-        Label resultLabel = new Label("Результат:");
+        calculateButton.setStyle(
+                "-fx-font-size: 14px; -fx-background-color: #007BFF; -fx-text-fill: white; -fx-padding: 10 20; -fx-border-radius: 5px; -fx-background-radius: 5px;"
+        );
+        calculateButton.setOnMouseEntered(e -> calculateButton.setStyle(
+                "-fx-font-size: 14px; -fx-background-color: #0040ff; -fx-text-fill: white; -fx-padding: 10 20; -fx-border-radius: 5px; -fx-background-radius: 5px;"
+        ));
+        calculateButton.setOnMouseExited(e -> calculateButton.setStyle(
+                "-fx-font-size: 14px; -fx-background-color: #007BFF; -fx-text-fill: white; -fx-padding: 10 20; -fx-border-radius: 5px; -fx-background-radius: 5px;"
+        ));        Label resultLabel = new Label("Результат:");
         resultLabel.setStyle("-fx-font-size: 16px; -fx-font-weight: normal; -fx-text-fill: #333;");
         Label resultText = new Label("");
         resultText.setStyle("-fx-font-size: 14px; -fx-font-weight: normal; -fx-text-fill: #333;");

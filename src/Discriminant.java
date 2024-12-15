@@ -1,5 +1,6 @@
 import javafx.application.Application;
 import javafx.geometry.Insets;
+import javafx.scene.image.Image;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -14,8 +15,9 @@ public class Discriminant extends Application {
 
     @Override
     public void start(Stage stage) {
-        Text title = new Text("Решение квадратного уравнения");
+        Text title = new Text("Дискриминант");
         title.getStyleClass().add("title");
+        stage.getIcons().add(new Image(getClass().getResource("/images/triangle.png").toExternalForm()));
 
         VBox leftBlock = new VBox(10);
         leftBlock.setAlignment(Pos.TOP_CENTER);
@@ -64,12 +66,37 @@ public class Discriminant extends Application {
         hbox.setAlignment(Pos.CENTER);
         hbox.setPadding(new Insets(20));
 
+        // Встраиваем CSS прямо в Scene
         Scene scene = new Scene(hbox, 640, 360);
         stage.setMinWidth(640);
         stage.setMinHeight(360);
-        scene.getStylesheets().add(getClass().getResource("/styles.css").toExternalForm());
         stage.setTitle("Дискриминант");
         stage.setScene(scene);
+
+        // Встраиваем стили CSS
+        scene.getRoot().setStyle(
+                "-fx-background-color: #f9f9f9; -fx-font-family: 'Arial', sans-serif; -fx-font-size: 16px; -fx-text-fill: #333;"
+        );
+
+        // Стили для заголовков и текстов
+        title.setStyle(
+                "-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #4CAF50;"
+        );
+
+        exampleText.setStyle(
+                "-fx-font-size: 14px; -fx-text-fill: #7F8C8D;"
+        );
+
+        // Стили для кнопки
+        calculateButton.setStyle(
+                "-fx-font-size: 14px; -fx-background-color: #007BFF; -fx-text-fill: white; -fx-padding: 10 20; -fx-border-radius: 5px; -fx-background-radius: 5px;"
+        );
+        calculateButton.setOnMouseEntered(e -> calculateButton.setStyle(
+                "-fx-font-size: 14px; -fx-background-color: #0040ff; -fx-text-fill: white; -fx-padding: 10 20; -fx-border-radius: 5px; -fx-background-radius: 5px;"
+        ));
+        calculateButton.setOnMouseExited(e -> calculateButton.setStyle(
+                "-fx-font-size: 14px; -fx-background-color: #007BFF; -fx-text-fill: white; -fx-padding: 10 20; -fx-border-radius: 5px; -fx-background-radius: 5px;"
+        ));
         stage.show();
     }
 
@@ -77,13 +104,16 @@ public class Discriminant extends Application {
     private double calculateDiscriminant(double a, double b, double c) {
         return b * b - 4 * a * c;
     }
+
     private String formatNumber(double number) {
         return String.format("%.2f", number);
     }
+
     private void showResult(double discriminant) {
         String formattedDiscriminant = formatNumber(discriminant);
         resultText.setText("Дискриминант: D = " + formattedDiscriminant);
     }
+
     private void showRoots(double a, double b, double c, double discriminant) {
         if (discriminant > 0) {
             double root1 = (-b + Math.sqrt(discriminant)) / (2 * a);

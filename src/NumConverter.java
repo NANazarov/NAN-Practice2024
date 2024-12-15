@@ -1,6 +1,7 @@
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -9,8 +10,9 @@ public class NumConverter extends Application {
 
     @Override
     public void start(Stage stage) {
-        Text title = new Text("Конвертер систем счисления");
+        Text title = new Text("Перевод систем счислений");
         title.setStyle("-fx-font-size: 24px; -fx-font-weight: bold; -fx-fill: #333;");
+        stage.getIcons().add(new Image(getClass().getResource("/images/arrows-repeat-1.png").toExternalForm()));
         Label fromLabel = new Label("Из системы:");
         fromLabel.setStyle("-fx-font-size: 14px; -fx-font-weight: normal; -fx-text-fill: #333;");
         ComboBox<String> fromSystem = new ComboBox<>();
@@ -26,7 +28,15 @@ public class NumConverter extends Application {
         TextField inputField = new TextField();
         inputField.setStyle("-fx-font-size: 14px; -fx-padding: 8px; -fx-border-color: #ccc; -fx-border-radius: 5px;");
         Button convertButton = new Button("Перевести");
-        convertButton.setStyle("-fx-background-color: #007bff; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 10px 20px; -fx-border-radius: 5px;");
+        convertButton.setStyle(
+                "-fx-font-size: 14px; -fx-background-color: #007BFF; -fx-text-fill: white; -fx-padding: 10 20; -fx-border-radius: 5px; -fx-background-radius: 5px;"
+        );
+        convertButton.setOnMouseEntered(e -> convertButton.setStyle(
+                "-fx-font-size: 14px; -fx-background-color: #0040ff; -fx-text-fill: white; -fx-padding: 10 20; -fx-border-radius: 5px; -fx-background-radius: 5px;"
+        ));
+        convertButton.setOnMouseExited(e -> convertButton.setStyle(
+                "-fx-font-size: 14px; -fx-background-color: #007BFF; -fx-text-fill: white; -fx-padding: 10 20; -fx-border-radius: 5px; -fx-background-radius: 5px;"
+        ));
         Label resultLabel = new Label("Результат:");
         resultLabel.setStyle("-fx-font-size: 16px; -fx-font-weight: normal; -fx-text-fill: #333;");
         Label resultText = new Label("");
@@ -104,7 +114,7 @@ public class NumConverter extends Application {
         grid.add(resultText, 0, 6, 2, 1);
 
         Scene scene = new Scene(grid, 400, 350);
-        stage.setTitle("Конвертер систем счисления");
+        stage.setTitle("Перевод систем счислений");
         stage.setScene(scene);
         stage.show();
     }
